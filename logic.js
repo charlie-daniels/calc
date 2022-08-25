@@ -26,3 +26,23 @@ function operate(operator, a, b) {
         return divide(a, b);
     }
 }
+
+function displayClear() {
+    let display = document.querySelector('#display');
+    display.textContent = '';
+}
+
+function displayValue(val) {
+    let display = document.querySelector('#display');
+    display.textContent += val;
+    return val;
+}
+
+function applyListeners() {
+    let buttons = document.querySelectorAll('.operator, .operand');
+    buttons.forEach(b => {
+        b.addEventListener('click', function() {displayValue(b.textContent)});
+    });
+}
+
+applyListeners();
