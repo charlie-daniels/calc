@@ -84,6 +84,7 @@ function applyListeners() {
     });
     let clearButton = document.querySelector('#clear');
     clearButton.addEventListener('click', () => {
+        temp = '';
         clearDisplay();
     });
     let dotButton = document.querySelector('#dot');
@@ -108,7 +109,11 @@ function applyListeners() {
             }
         })
     });
-
+    let percentButton = document.querySelector('#percent');
+    percentButton.addEventListener('click', b => {
+        temp /= 100;
+        displayValue(temp);
+    });
     let equalsButton = document.querySelector('#equals');
     equalsButton.addEventListener('click', () => {
         sum.b = temp;
