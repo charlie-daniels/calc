@@ -122,6 +122,16 @@ function applyListeners() {
         displayValue(evaluate());
         reset();
     });
+
+    document.addEventListener('keypress', (e) => {
+        let buttons = document.querySelectorAll('button');
+        buttons.forEach(b => {
+            if (b.textContent === e.key) {
+                let clickEvent = new Event('click');
+                b.dispatchEvent(clickEvent);
+            } 
+        })
+    }, false);
 }
 
 applyListeners();
