@@ -15,8 +15,8 @@ function divide(a, b) {
 }
 
 function operate(operator, a, b) {
-    a = parseInt(a);
-    b = parseInt(b);
+    a = parseFloat(a);
+    b = parseFloat(b);
     switch (operator) {
     case '+':
         return add(a, b);
@@ -45,7 +45,6 @@ let sum = {
 function reset() {
     sum.a = null;
     sum.b = null;
-    sum.operator = null;
     temp = '';
 }
 
@@ -72,6 +71,11 @@ function setOperator(operator) {
     temp = '';
 }
 
+function evaluate() {
+    let result = Math.round(operate(sum.operator, sum.a, sum.b) * 1000) / 1000;
+    return result;
+}
+
 function applyListeners() {
     let allClearButton = document.querySelector('#all-clear');
     allClearButton.addEventListener('click', () => {
@@ -80,7 +84,12 @@ function applyListeners() {
     });
     let clearButton = document.querySelector('#clear');
     clearButton.addEventListener('click', () => {
-        clearDisplay()
+        clearDisplay();
+    });
+    let dotButton = document.querySelector('#dot');
+    dotButton.addEventListener('click', () => {
+        temp += '.';
+        displayValue(temp);
     });
     let buttons = document.querySelectorAll('.operand');
     buttons.forEach(b => {
@@ -92,15 +101,19 @@ function applyListeners() {
     operatorButtons.forEach(b => {
         b.addEventListener('click', () => {
             setOperator(b.textContent);
+            if (sum.a !== null && sum.b !== null) { // both values are filled
+                let result = evaluate(); // evaluate the expression
+                reset(); // set sum to null
+                sum.a = result; // set result as first operand
+            }
         })
     });
 
     let equalsButton = document.querySelector('#equals');
     equalsButton.addEventListener('click', () => {
         sum.b = temp;
-        let result = operate(sum.operator, sum.a, sum.b);
+        displayValue(evaluate());
         reset();
-        displayValue(result);
     });
 }
 
