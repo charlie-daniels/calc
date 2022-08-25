@@ -45,6 +45,7 @@ button {
 #display {
     padding: 10px;
     margin-bottom: 10px;
+    height: 1.2em;
     background-color: rgb(71, 71, 71);
     text-align: right;
 }
@@ -55,4 +56,5 @@ button {
     font-size: 14px;
     background-color: rgb(59, 59, 59, 0.5);
 }
+
 
