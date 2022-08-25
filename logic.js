@@ -125,6 +125,10 @@ function applyListeners() {
 
     document.addEventListener('keypress', (e) => {
         let buttons = document.querySelectorAll('button');
+        if (e.key === 'Enter') {
+            let clickEvent = new Event('click');
+            equalsButton.dispatchEvent(clickEvent);
+        }
         buttons.forEach(b => {
             if (b.textContent === e.key) {
                 let clickEvent = new Event('click');
