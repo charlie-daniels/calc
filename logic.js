@@ -89,8 +89,10 @@ function applyListeners() {
     });
     let dotButton = document.querySelector('#dot');
     dotButton.addEventListener('click', () => {
-        temp += '.';
-        displayValue(temp);
+        if (!temp.includes('.')){
+            temp += '.';
+            displayValue(temp);
+        }
     });
     let buttons = document.querySelectorAll('.operand');
     buttons.forEach(b => {
