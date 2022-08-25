@@ -4,7 +4,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(255, 185, 55);
+    background-color: rgb(255, 164, 36);
 }
 
 body * {
@@ -14,7 +14,8 @@ body * {
 }
 
 .calc {
-    padding: 10px;
+    padding: 8px;
+    border-radius: 6px;
     background-color: rgb(59, 59, 59);
 }
 
@@ -30,7 +31,7 @@ body * {
 }
 
 .option {
-    background-color: rgb(51, 136, 119);
+    background-color: rgb(71, 71, 71);
 }
 
 button {
@@ -39,15 +40,16 @@ button {
     padding-right: 10px;
     border: none;
     text-align: right;
-    background-color: rgb(71, 71, 71);
+    background-color: rgb(99, 99, 99);
+    outline: solid rgb(71, 71, 71, 0.5) 1px;
 }
 
 #display {
     padding: 10px;
     margin-bottom: 10px;
     height: 1.2em;
-    background-color: rgb(71, 71, 71);
     text-align: right;
+    background-color: rgb(0, 0 , 0, 0.05);
 }
 
 #footer {
